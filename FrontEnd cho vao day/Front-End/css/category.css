@@ -1,0 +1,16 @@
+.main-content {
+  min-height: calc(100vh - 60px - 85px - 235px);
+}
+
+.home-product {
+  height: unset;
+}
+
+.card {
+  margin: 0 0 13px 0;
+}
+
+.home-product-content {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
