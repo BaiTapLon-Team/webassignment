@@ -13,10 +13,10 @@ import java.util.Optional;
 public class CategoriesServiceImpl implements CategoryService {
 
     @Autowired
-    private CategoryRepository categoriesReponsitory;
+    private CategoryRepository categoryRepository;
 
     @Override
     public List<Category> findAll () {
-       return categoriesReponsitory.findAll();
+       return categoryRepository.findAll();
     }
 }
