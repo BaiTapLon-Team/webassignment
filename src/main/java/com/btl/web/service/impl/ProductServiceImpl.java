@@ -13,25 +13,25 @@ import java.util.Optional;
 @Service
 public class ProductServiceImpl implements ProductService {
     @Autowired
-    private ProductRepository productReponsitory;
+    private ProductRepository productRepository;
 
     @Override
     public List<Product> getAllProducts () {
-        return productReponsitory.findAll();
+        return productRepository.findAll();
     }
 
     @Override
     public Optional<Product> findProductById (Integer id) {
-        return productReponsitory.findById(id);
+        return productRepository.findById(id);
     }
 
     @Override
     public void saveProduct ( Product product ) {
-        productReponsitory.save(product);
+        productRepository.save(product);
     }
 
     @Override
     public void deleteProduct ( Integer id ) {
-        productReponsitory.deleteById(id);
+        productRepository.deleteById(id);
     }
 }
