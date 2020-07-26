@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html lang="vi" xmlns:th="http://thymeleaf.org">
   <head >
-    <meta th:replace="fragments :: meta">
-    <meta th:replace="fragments :: meta-viewport">
-    <link th:replace="fragments :: font-icon"/>
-    <link th:replace="fragments :: bootstrap"/>
+    <th:block th:include= "fragments :: head-default"></th:block>
     <title>T-SHOP</title>
-    <link rel="stylesheet" href="../css/global.css" />
-    <link rel="stylesheet" href="../css/index.css" />
-    <script src="../js/index.js"></script>
+
   </head>
   <body>
     <div id="root" class="width-100 height-100">
@@ -281,9 +276,6 @@
       <div th:replace="fragments :: footer-bottom"></div>
     </div>
 
-    <script th:replace="fragments :: jquery"></script>
-    <script th:replace="fragments :: jquery-slim-min"></script>
-    <script th:replace="fragments :: popper-min"></script>
-    <script th:replace="fragments :: bootstrap-min"></script>
+    <th:block th:include="fragments :: lib-bottom"></th:block>
   </body>
 </html>

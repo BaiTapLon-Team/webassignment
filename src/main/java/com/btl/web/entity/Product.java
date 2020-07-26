@@ -36,5 +36,27 @@ public class Product {
     public Product () {
     }
 
-
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", category=" + category +
+                ", description='" + description + '\'' +
+                ", createdOn=" + createdOn +
+                ", modifiedOn=" + modifiedOn +
+                ", status='" + status + '\'' +
+                ", cpu='" + cpu + '\'' +
+                ", ram='" + ram + '\'' +
+                ", hardDisk='" + hardDisk + '\'' +
+                ", screen='" + screen + '\'' +
+                ", portConnect='" + portConnect + '\'' +
+                ", weight='" + weight + '\'' +
+                ", pin='" + pin + '\'' +
+                ", os='" + os + '\'' +
+                ", busRam='" + busRam + '\'' +
+                ", brand='" + brand + '\'' +
+                ", productImages=" + productImages +
+                '}';
+    }
 }
