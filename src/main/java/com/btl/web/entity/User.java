@@ -2,86 +2,74 @@ package com.btl.web.entity;
 
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
-@Table(name = "userweb")
+@Table(name = "User")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer userid;
+    private Integer id;
 
-    @Column(name = "useremail")
-    private String useremail;
+    private String email;
 
-    @Column(name = "userpassword")
-    private String userpassword;
+    private String password;
 
-    @Column(name = "username")
     private String username;
 
-    @Column(name = "birthday")
-    private String brithday;
+    private Date brithday;
 
-    @Column(name = "user_role")
-    private Integer user_role;
+    private Integer userRole;
 
-    @Column(name = "avatar")
-    private String avatar;
-
-    public Integer getUserid () {
-        return userid;
+    public User() {
     }
 
-    public void setUserid ( Integer userid ) {
-        this.userid = userid;
+    public Integer getId() {
+        return id;
     }
 
-    public String getUseremail () {
-        return useremail;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setUseremail ( String useremail ) {
-        this.useremail = useremail;
+    public String getEmail() {
+        return email;
     }
 
-    public String getUserpassword () {
-        return userpassword;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setUserpassword ( String userpassword ) {
-        this.userpassword = userpassword;
+    public String getPassword() {
+        return password;
     }
 
-    public String getUsername () {
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUsername() {
         return username;
     }
 
-    public void setUsername ( String username ) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
-    public String getBrithday () {
+    public Date getBrithday() {
         return brithday;
     }
 
-    public void setBrithday ( String brithday ) {
+    public void setBrithday(Date brithday) {
         this.brithday = brithday;
     }
 
-    public Integer getUser_role () {
-        return user_role;
+    public Integer getUserRole() {
+        return userRole;
     }
 
-    public void setUser_role ( Integer user_role ) {
-        this.user_role = user_role;
-    }
-
-    public String getAvatar () {
-        return avatar;
-    }
-
-    public void setAvatar ( String avatar ) {
-        this.avatar = avatar;
+    public void setUserRole(Integer userRole) {
+        this.userRole = userRole;
     }
 }
