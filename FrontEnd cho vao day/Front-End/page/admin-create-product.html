@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thêm mới sản phẩm</title>
+    <link rel="stylesheet" href="../fonts/font-awesome/css/all.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/admin.css" />
+    <link rel="stylesheet" href="../css/product.css" />
+  </head>
+  <body>
+    <div id="root">
+      <div class="wrapper">
+        <div class="header">
+          <div class="banner d-flex">
+            <img src="../images/logo.png" alt="" />
+            <h4>Hệ thống quản trị website</h4>
+          </div>
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Danh sách sản phẩm</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Danh sách đơn hàng</a>
+            </li>
+          </ul>
+        </div>
+        <div class="main-content">
+          <div class="content">
+            <div
+              class="col-12 mt-2 mb-3 d-flex justify-content-between align-item-center"
+            >
+              <h4 class="mb-0">Thêm mới sản phẩm</h4>
+              <a href="#" style="color: #212b35;">
+                Quay về trang danh sách
+                <i
+                  class="far fa-chevron-right"
+                  style="font-size: 15px; margin-left: 8px;"
+                ></i
+              ></a>
+            </div>
+            <form action="#" class="">
+              <div class="d-flex info-product">
+                <div class="info-product-left">
+                  <div class="box-info">
+                    <h6 class="box-info-title col-12">
+                      Thông tin chung
+                    </h6>
+                    <div class="d-flex form-group-two-col">
+                      <div class="form-group col-6">
+                        <label for="name-product">Tên sản phẩm</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="name-product"
+                          placeholder="Nhập tên sản phẩm"
+                        />
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="name-product">Giá sản phẩm</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="name-product"
+                          placeholder="Nhập tên sản phẩm"
+                        />
+                      </div>
+                    </div>
+                    <div class="d-flex form-group-two-col">
+                      <div class="form-group col-6">
+                        <label for="categoryLv0">Danh mục cha</label>
+                        <select class="custom-select" id="categoryLv0">
+                          <option selected>Chọn danh mục</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="categoryLv0">Danh mục con</label>
+                        <select class="custom-select" id="categoryLv0">
+                          <option selected>Chọn danh mục</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="description">Mô tả</label>
+                      <textarea
+                        class="form-control"
+                        id="description"
+                        rows="3"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="box-info" style="margin-top: 25px;">
+                    <h6 class="box-info-title col-12">
+                      Thông số kĩ thuật
+                    </h6>
+                    <div class="d-flex form-group-two-col">
+                      <div class="form-group col-3">
+                        <label for="name-product">CPU</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="name-product"
+                          placeholder=""
+                        />
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="name-product">Ram</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="name-product"
+                          placeholder=""
+                        />
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="name-product">Bộ nhớ</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="name-product"
+                          placeholder=""
+                        />
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="name-product">Màn hình</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="name-product"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+                    <div class="d-flex form-group-two-col">
+                      <div class="form-group col-3">
+                        <label for="name-product">Cổng kết nối</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="name-product"
+                          placeholder=""
+                        />
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="name-product">Trọng lượng</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="name-product"
+                          placeholder=""
+                        />
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="name-product">Pin</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="name-product"
+                          placeholder=""
+                        />
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="name-product">Hệ điều hành</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="name-product"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+                    <div class="d-flex form-group-two-col">
+                      <div class="form-group col-3">
+                        <label for="name-product">Bus-ram</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="name-product"
+                          placeholder=""
+                        />
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="name-product">Thương hiệu</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="name-product"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="info-product-right">
+                  <div class="box-info box-info-img">
+                    <h6
+                      class="box-info-title d-flex justify-content-between col-12"
+                    >
+                      <span>Ảnh sản phẩm</span>
+                      <span class="fileinput-button">
+                        <a
+                          href="#"
+                          style="text-decoration: underline; font-size: 18px;"
+                          >Thêm ảnh</a
+                        >
+                        <input
+                          type="file"
+                          name="files[]"
+                          id="files"
+                          multiple
+                          accept="image/jpeg, image/png, image/gif,"
+                        /><br />
+                      </span>
+                    </h6>
+
+                    <output id="Filelist" class="file-list"></output>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-end m-3">
+                <button
+                  type="button"
+                  class="btn btn-light mr-3"
+                  style="border-color: #cccccc;"
+                >
+                  Hủy
+                </button>
+                <button type="button" class="btn btn-primary">Thêm mới</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/create.js"></script>
+  </body>
+</html>

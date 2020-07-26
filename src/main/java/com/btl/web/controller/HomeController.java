@@ -24,16 +24,6 @@ public class HomeController {
     public String index(Model model) {
         getAllCategory(model);
         List<Category> categories = (List<Category>) model.getAttribute("categories");
-        for(Category category: categories) {
-            if(category.getParentId() == 0) {
-                System.out.println("Category: "+category.getName());
-                for(Category subCategory : categories) {
-                    if(category.getId() == subCategory.getParentId()) {
-                        System.out.println("=> SubCategory: "+subCategory.getName());
-                    }
-                }
-            }
-        }
 
         return "index";
     }
