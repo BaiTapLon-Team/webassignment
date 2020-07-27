@@ -112,3 +112,25 @@ td.col-btn-action {
   justify-content: space-between;
   padding: 0 5px;
 }
+
+.img-order {
+  width: 200px;
+  object-fit: cover;
+}
+
+.table-order th,
+td {
+  text-align: center;
+}
+
+.table-order td {
+  vertical-align: middle;
+}
+
+.table-order .col-img {
+  /* width: 226px; */
+}
+
+.table-order .col-name {
+  width: 600px;
+}

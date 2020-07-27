@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin</title>
+    <title>Danh sách đơn hàng</title>
     <link rel="stylesheet" href="../fonts/font-awesome/css/all.css" />
     <link
       rel="stylesheet"
@@ -30,20 +30,30 @@
           </div>
           <ul class="nav nav-tabs">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Danh sách sản phẩm</a>
+              <a class="nav-link" href="#">Danh sách sản phẩm</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Danh sách đơn hàng</a>
+              <a class="nav-link active" href="#">Danh sách đơn hàng</a>
             </li>
           </ul>
         </div>
         <div class="main-content">
           <div class="action d-flex justify-content-between align-item-center">
+            <div class="btn-action d-flex align-item-center">
+              <h5 class="mb-0 mr-3">Hiển thị đơn hàng</h5>
+              <div class="form-group mb-0">
+                <select class="custom-select" id="categoryLv0">
+                  <option value="1">Chưa duyệt</option>
+                  <option value="2">Đã Duyệt</option>
+                  <option value="3">Tất cả</option>
+                </select>
+              </div>
+            </div>
             <form class="form-inline my-2 my-lg-0 mr-2">
               <input
                 class="form-control mr-sm-2"
                 type="search"
-                placeholder="Tìm kiếm sản phẩm ..."
+                placeholder="Tìm kiếm đơn hàng ..."
                 aria-label="Search"
               />
               <button
@@ -53,98 +63,67 @@
                 <i class="far fa-search"></i>
               </button>
             </form>
-            <div class="btn-action">
-              <a
-                class="btn btn-primary"
-                href="./admin-create-product.html"
-                role="button"
-              >
-                Thêm mới sản phẩm
-              </a>
-            </div>
           </div>
           <div class="content">
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th scope="col"></th>
-                  <th scope="col">Tên sản phẩm</th>
-                  <th scope="col">Danh mục</th>
-                  <th scope="col">Giá sản phẩm</th>
+                  <th scope="col">Khách hàng</th>
+                  <th scope="col">Số điện thoại</th>
                   <th scope="col">Ngày tạo</th>
+                  <th scope="col">Tổng tiền</th>
                   <th scope="col">Trạng thái</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td class="col-img">
-                    <img
-                      src="../images/product/acer-nitro-5.jpg"
-                      alt=""
-                      class="col-img-prod"
-                    />
-                  </td>
                   <td>@twitter</td>
                   <td>@twitter</td>
                   <td>@twitter</td>
                   <td>@twitter</td>
                   <td>@twitter</td>
-                  <td class="col-btn-action">
+                  <td class="col-btn-action" style="width: 150px;">
                     <div class="col-btn-action-content">
                       <button type="button" class="btn btn-info btn-sm">
-                        Sửa
+                        Chi tiết
                       </button>
                       <button type="button" class="btn btn-danger btn-sm">
-                        Xóa
+                        Hủy đơn
                       </button>
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <td class="col-img">
-                    <img
-                      src="../images/product/acer-nitro-5.jpg"
-                      alt=""
-                      class="col-img-prod"
-                    />
-                  </td>
                   <td>@twitter</td>
                   <td>@twitter</td>
                   <td>@twitter</td>
                   <td>@twitter</td>
                   <td>@twitter</td>
-                  <td class="col-btn-action">
+                  <td class="col-btn-action" style="width: 150px;">
                     <div class="col-btn-action-content">
                       <button type="button" class="btn btn-info btn-sm">
-                        Sửa
+                        Chi tiết
                       </button>
                       <button type="button" class="btn btn-danger btn-sm">
-                        Xóa
+                        Hủy đơn
                       </button>
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <td class="col-img">
-                    <img
-                      src="../images/product/acer-nitro-5.jpg"
-                      alt=""
-                      class="col-img-prod"
-                    />
-                  </td>
                   <td>@twitter</td>
                   <td>@twitter</td>
                   <td>@twitter</td>
                   <td>@twitter</td>
                   <td>@twitter</td>
-                  <td class="col-btn-action">
+                  <td class="col-btn-action" style="width: 150px;">
                     <div class="col-btn-action-content">
                       <button type="button" class="btn btn-info btn-sm">
-                        Sửa
+                        Chi tiết
                       </button>
                       <button type="button" class="btn btn-danger btn-sm">
-                        Xóa
+                        Hủy đơn
                       </button>
                     </div>
                   </td>

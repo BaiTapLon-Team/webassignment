@@ -210,7 +210,37 @@
                   </div>
                 </div>
                 <div class="info-product-right">
-                  <div class="box-info box-info-img">
+                  <div class="box-info">
+                    <h6 class="box-info-title col-12">
+                      Tình trạng hàng
+                    </h6>
+                    <div class="d-flex form-group-two-col col-12 pt-2 pb-4">
+                      <div class="form-check col-6">
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="active"
+                          name="status"
+                          checked
+                        />
+                        <label class="form-check-label" for="active"
+                          >Còn hàng</label
+                        >
+                      </div>
+                      <div class="form-check col-6">
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="disable"
+                          name="status"
+                        />
+                        <label class="form-check-label" for="disable"
+                          >Hết hàng</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="box-info box-info-img" style="margin-top: 25px;">
                     <h6
                       class="box-info-title d-flex justify-content-between col-12"
                     >
@@ -230,7 +260,6 @@
                         /><br />
                       </span>
                     </h6>
-
                     <output id="Filelist" class="file-list"></output>
                   </div>
                 </div>
