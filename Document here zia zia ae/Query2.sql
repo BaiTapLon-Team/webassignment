@@ -46,6 +46,9 @@ CREATE TABLE [Product]
 	ProductImagesId int FOREIGN KEY REFERENCES ProductImages(Id),
 )
 
+INSERT INTO Product(Name, Description,HardDisk) values 
+('Oke', 'Van cu la oke', 'Ngon lành rồi')
+
 Go
 
 CREATE TABLE [ORDER]
