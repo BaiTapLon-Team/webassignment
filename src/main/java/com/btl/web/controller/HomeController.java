@@ -1,7 +1,9 @@
 package com.btl.web.controller;
 
 import com.btl.web.entity.Category;
+import com.btl.web.entity.Product;
 import com.btl.web.service.CategoryService;
+import com.btl.web.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,8 @@ public class HomeController {
 
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private ProductService productService;
 
     public void getAllCategory(Model model) {
         List<Category> categories = categoryService.findAll();
@@ -34,7 +38,9 @@ public class HomeController {
                 }
             }
         }
-
+        List<Product> products =  productService.getAllProducts();
+        model.addAttribute("products", products);
+        System.out.println(products);
         return "index";
     }
 }

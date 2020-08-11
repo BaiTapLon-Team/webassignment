@@ -90,8 +90,9 @@
           </div>
         </div>
       </div>
-      <div class="main-content container">
-        <div class="home-product d-flex flex-column">
+      <div th:each="product:${products}" class="main-content container">
+        <div class="home-product d-flex flex-column" th:if="${product.category.parentId} == 3">
+          <h1 th:utext="${product.id}"></h1>
           <div class="home-product-header d-flex align-item-center mb-auto">
             <h3 class="title"><a href="#">Laptop văn phòng</a></h3>
             <div class="view-more">
@@ -118,7 +119,7 @@
             </a>
           </div>
         </div>
-        <div class="home-product d-flex flex-column">
+        <div class="home-product d-flex flex-column" th:if="${product.category.parentId} == 2">
           <div class="home-product-header d-flex align-item-center mb-auto">
             <h3 class="title"><a href="#">Laptop đồ họa</a></h3>
             <div class="view-more">
@@ -133,35 +134,10 @@
                 <img src="../images/product/dell-7510.jpg" alt="" />
               </div>
               <div class="content">
-                <span class="name"
-                  >Laptop cũ Dell Precision 7510 (Core i7-6820HQ, RAM 8GB, SSD
+                <span class="name" th:utext="${product.name}"> (Core i7-6820HQ, RAM 8GB, SSD
                   256GB, VGA 2GB NVIDIA Quadro M1000M, 15.6 inch Full HD)</span
                 >
-                <span class="price">14.890.000đ</span>
-              </div>
-            </a>
-            <a href="#" class="card prod-item">
-              <div class="img">
-                <img src="../images/product/dell-6540.jpg" alt="" />
-              </div>
-              <div class="content">
-                <span class="name"
-                  >Laptop Dell Latitude E6540 (Core i7 4800MQ, RAM 8GB, SSD
-                  256GB, VGA 2GB AMD Radeon HD 8790M, 15.6 inch Full HD)</span
-                >
-                <span class="price">13.890.000đ </span>
-              </div>
-            </a>
-            <a href="#" class="card prod-item">
-              <div class="img">
-                <img src="../images/product/dell-4800.jpg" alt="" />
-              </div>
-              <div class="content">
-                <span class="name"
-                  >Laptop cũ Dell Precision M4800 (Core i7-4800MQ, RAM 8GB, SSD
-                  256GB, VGA 2GB NVIDIA Quadro K1100M, 15.6 inch FHD)</span
-                >
-                <span class="price">18.890.000đ</span>
+                <span class="price" th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 1, 'POINT')}"></span>
               </div>
             </a>
             <a href="#" class="card cover-cate">
@@ -169,7 +145,7 @@
             </a>
           </div>
         </div>
-        <div class="home-product d-flex flex-column">
+        <div class="home-product d-flex flex-column" th:if="${product.category.parentId} == 1">
           <div class="home-product-header d-flex align-item-center mb-auto">
             <h3 class="title"><a href="#">Laptop gaming</a></h3>
             <div class="view-more">
@@ -217,57 +193,6 @@
                 >
                 <span class="price">18.890.000đ</span>
               </div>
-            </a>
-          </div>
-        </div>
-        <div class="home-product d-flex flex-column">
-          <div class="home-product-header d-flex align-item-center mb-auto">
-            <h3 class="title"><a href="#">Laptop đồ họa</a></h3>
-            <div class="view-more">
-              <a href="#" class="text"
-                ><i class="far fa-angle-double-right"></i
-              ></a>
-            </div>
-          </div>
-          <div class="home-product-content d-flex">
-            <a href="#" class="card prod-item">
-              <div class="img">
-                <img src="../images/product/dell-7510.jpg" alt="" />
-              </div>
-              <div class="content">
-                <span class="name"
-                  >Laptop cũ Dell Precision 7510 (Core i7-6820HQ, RAM 8GB, SSD
-                  256GB, VGA 2GB NVIDIA Quadro M1000M, 15.6 inch Full HD)</span
-                >
-                <span class="price">14.890.000đ</span>
-              </div>
-            </a>
-            <a href="#" class="card prod-item">
-              <div class="img">
-                <img src="../images/product/dell-6540.jpg" alt="" />
-              </div>
-              <div class="content">
-                <span class="name"
-                  >Laptop Dell Latitude E6540 (Core i7 4800MQ, RAM 8GB, SSD
-                  256GB, VGA 2GB AMD Radeon HD 8790M, 15.6 inch Full HD)</span
-                >
-                <span class="price">13.890.000đ </span>
-              </div>
-            </a>
-            <a href="#" class="card prod-item">
-              <div class="img">
-                <img src="../images/product/dell-4800.jpg" alt="" />
-              </div>
-              <div class="content">
-                <span class="name"
-                  >Laptop cũ Dell Precision M4800 (Core i7-4800MQ, RAM 8GB, SSD
-                  256GB, VGA 2GB NVIDIA Quadro K1100M, 15.6 inch FHD)</span
-                >
-                <span class="price">18.890.000đ</span>
-              </div>
-            </a>
-            <a href="#" class="card cover-cate">
-              <img src="../images/cover-cate/cate-graphics.jpg" alt="" />
             </a>
           </div>
         </div>
