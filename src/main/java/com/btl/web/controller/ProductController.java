@@ -15,14 +15,6 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-//    @GetMapping("/product")
-//    private ResponseEntity<?> getAllProduct( ModelAndView modelAndView ) {
-//        modelAndView.setViewName("index");
-//        List<Product> products =  productService.getAllProducts();
-//        modelAndView.addObject("products", products);
-//        return  new ResponseEntity<>(products, HttpStatus.OK);
-//    }
-
     @GetMapping("/product")
     private String test(){
         List<Product> products = productService.getAllProducts();

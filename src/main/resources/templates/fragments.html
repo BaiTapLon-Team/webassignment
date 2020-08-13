@@ -42,7 +42,7 @@
                         <div class="sub-menu sub-menu-1">
                             <th:block th:each="subCategory: ${categories}">
                                 <th:block th:if="${subCategory.parentId == category.id}">
-                                    <a th:href="@{'/'+${subCategory.convertUriUrl()} + '-' + ${subCategory.id}}"
+                                    <a th:href="@{'/'+${category.name} + '-' + ${subCategory.id}}"
                                        class="sub-menu-item"
                                        th:text="${subCategory.name}"></a>
                                 </th:block>
@@ -58,10 +58,10 @@
               <i class="far fa-cart-plus"></i>
               Giỏ hàng (1)
             </div> -->
-            <form class="form-inline my-2 my-lg-0 mr-2">
+            <form class="form-inline my-2 my-lg-0 mr-2" action="/" method="get">
                 <input
                         class="form-control mr-sm-2"
-                        type="search"
+                        type="search" name="search"
                         placeholder="Bạn muốn tìm gì ?"
                         aria-label="Search"
                 />
@@ -107,7 +107,7 @@
                         aria-label="Recipient's username"
                 />
                 <div class="input-group-append">
-                    <button class="btn btn-danger" type="submit">
+                    <button class="btn btn-danger" type="submit" onclick="alert('Đăng ký thành công')">
                         Đăng ký
                     </button>
                 </div>
@@ -182,5 +182,7 @@
             crossorigin="anonymous"
     ></script>
 </th:block>
+
+
 </body>
 </html>
