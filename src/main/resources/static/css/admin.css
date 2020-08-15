@@ -120,7 +120,8 @@ td.col-btn-action {
 
 .table-order th,
 td {
-  text-align: center;
+
+  /*text-align: center;*/
 }
 
 .table-order td {

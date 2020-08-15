@@ -1,5 +1,7 @@
 ﻿CREATE DATABASE WebDesign
 
+USE WebDesign
+
 GO
 
 CREATE TABLE [ProductImages] (
@@ -11,6 +13,17 @@ CREATE TABLE [ProductImages] (
 	Image5 NVARCHAR(255),
 	Image6 NVARCHAR(255)
 )
+
+insert into ProductImages values
+('https://laptopaz.vn/media/product/120_1408_dell_5577__3_.jpg', 
+	'https://laptopaz.vn/media/product/120_1408_5ad51fe832d0d48e8dc1.jpg',
+	'https://laptopaz.vn/media/product/120_1408_dell_5577__13_.jpg',
+	'https://laptopaz.vn/media/product/120_1408_dell_5577__7_.jpg',
+	'https://laptopaz.vn/media/product/120_1408_dell_5577__5_.jpg',
+	'https://laptopaz.vn/media/product/120_1408_dell_5577__4_.jpg'
+)
+
+select * from ProductImages
 
 Go
 
@@ -46,12 +59,19 @@ CREATE TABLE [Product]
 	ProductImagesId int FOREIGN KEY REFERENCES ProductImages(Id),
 )
 
-INSERT INTO Product(Name, Description,HardDisk) values 
-('Oke', 'Van cu la oke', 'Ngon lành rồi')
+
+update Product SET ProductImagesId = 1 where id  = 3
+
+INSERT INTO Product(Name,Price, CategoryId, Description, Status, Cpu, Ram, HardDisk, Screen, PortConnect, Weight, Pin, Os, BusRam, Brand) values 
+('Lap top dell 7559 i5', 5000, 11, 'May tinh ngon', 'active', 'i5 7300hq', '8G', '500GB ssd', '15.6 inch', 'hdmi', '2.5kg', '6 cell', 'windows', '1600', 'dell')
+
+
+
+select * from Product
 
 Go
 
-CREATE TABLE [ORDER]
+CREATE TABLE [OrderTshop]
 (
 	Id int PRIMARY KEY IDENTITY(1,1),
 	TotalAmount DECIMAL,
@@ -66,14 +86,17 @@ CREATE TABLE [ORDER]
 
 Go
 
-CREATE TABLE [ORDER_PRODUCT]
+CREATE TABLE [OrderProduct]
 (
-	OrderId int FOREIGN KEY REFERENCES [ORDER](Id),
+	OrderId int FOREIGN KEY REFERENCES [OrderTshop](Id),
 	ProductId int FOREIGN KEY REFERENCES Product(Id),
 	Quantity int,
 	TotalAmount DECIMAL,
 	PRIMARY KEY (OrderId, ProductId)
 )
+
+select * from [OrderTshop];
+select * from OrderProduct
 
 Go
 
@@ -114,8 +137,8 @@ INSERT INTO Category (ParentId, Name) VALUES
 
 SELECT * FROM Category
 
---Drop Table ORDER_PRODUCT
---Drop Table [ORDER]
+Drop Table OrderProduct
+Drop Table [Order]
 --Drop Table Product
 --Drop Table ProductImages
 --Drop Table Categories
