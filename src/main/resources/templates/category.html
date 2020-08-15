@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://thymeleaf.org">
+  <head>
+    <th:block th:include= "fragments :: head-default"></th:block>
+    <title>T-Shop</title>
+    <link type="text/css" href="../static/css/category.css">
+  </head>
+  <body>
+    <div id="root" class="width-100 height-100">
+      <div th:replace="fragments :: header"></div>
+
+      <div class="main-content container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="/">Trang chủ</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page" th:utext="${category}" >
+
+            </li>
+          </ol>
+        </nav>
+        <div class="home-product d-flex flex-column">
+          <div class="home-product-content d-flex" th:each="product:${products}">
+            <a href="#" class="card prod-item">
+              <div class="img">
+                <img th:src="${product.productImages.image1}" alt="" />
+              </div>
+              <div class="content">
+                <span class="name" th:utext="${product.name}"></span>
+                <span class="price" th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 1, 'POINT')}" ></span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div th:replace="fragments :: footer-policy"></div>
+      <div th:replace="fragments :: footer-bottom"></div>
+    </div>
+    <th:block th:include="fragments :: lib-bottom"></th:block>
+  </body>
+</html>

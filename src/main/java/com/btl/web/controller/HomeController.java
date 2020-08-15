@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class HomeController {
@@ -37,15 +38,20 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping("/{categogyPath}" )
+    @GetMapping("/category/{categogyPath}" )
     public String getListFollowCategogy( Model model, @PathVariable String categogyPath ) {
         getAllCategory(model);
         List<Category> categories = (List<Category>) model.getAttribute("categories");
         String [] s = categogyPath.split("-");
-        int categoryId = Integer.parseInt(s[1]);
+        int categoryId = Integer.parseInt(s[s.length-1]);
         List<Product> products = productService.findProductsByCategoryId(categoryId);
         model.addAttribute("products", products);
-        return "index";
+        Optional<Category> category = categoryService.findCategoryById(categoryId);
+        String subCategory = categoryService.findCategoryById(categoryId).get().getName();
+        String fatherCategory = categoryService.findCategoryById(category.get().getParentId()).get().getName();
+        String categoryString = fatherCategory +" / "+subCategory;
+        model.addAttribute("category", categoryString);
+        return "category";
     }
 
     @GetMapping(value = "/", params = "search")

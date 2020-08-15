@@ -30,10 +30,6 @@ public class ProductServiceImpl implements ProductService {
         productRepository.save(product);
     }
 
-    @Override
-    public void deleteProduct ( Integer id ) {
-        productRepository.deleteById(id);
-    }
 
     @Override
     public List<Product> findProductsByCategoryId (int categoryId) {

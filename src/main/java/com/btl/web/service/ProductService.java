@@ -11,7 +11,6 @@ public interface ProductService {
     public List<Product> getAllProducts();
     public Optional<Product> findProductById(Integer id);
     public void saveProduct(Product product);
-    public void deleteProduct(Integer id);
     public List<Product> findProductsByCategoryId(int categoryId);
     public List<Product> findAllByNameLike(String keyWord);
 }

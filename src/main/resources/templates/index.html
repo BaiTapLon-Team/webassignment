@@ -2,7 +2,7 @@
 <html lang="vi" xmlns:th="http://thymeleaf.org">
   <head >
     <th:block th:include= "fragments :: head-default"></th:block>
-    <title>T-SHOP</title>
+    <title>T-Shop</title>
 
   </head>
   <body>
@@ -109,14 +109,12 @@
             </a>
             <a href="#" class="card prod-item">
               <div class="img">
-                <img src="../images/product/dell-5577.jpg" alt="" />
+                <img th:src="${product.productImages.image1}" alt="" />
               </div>
               <div class="content">
-                <span class="name"
-                  >Laptop cũ Dell Inspiron 5577 (Core i5-7300HQ, RAM 8GB, HDD
-                  500GB, VGA 4GB GTX 1050, 15.6' FHD)</span
-                >
-                <span class="price">14.890.000đ</span>
+                <span class="name" th:utext="${product.name}"></span>
+                <span th:if="${product.status.equals('on')}" class="price" th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 1, 'POINT')}"></span>
+                <span th:if="${product.status.equals('off')}" class="price" > Liên Hệ </span>
               </div>
             </a>
           </div>
@@ -133,13 +131,13 @@
           <div class="home-product-content d-flex">
             <a href="#" class="card prod-item">
               <div class="img">
-                <img src="../images/product/dell-7510.jpg" alt="" />
+                <img th:src="${product.productImages.image1}" alt="" />
               </div>
               <div class="content">
-                <span class="name" th:utext="${product.name}"> (Core i7-6820HQ, RAM 8GB, SSD
-                  256GB, VGA 2GB NVIDIA Quadro M1000M, 15.6 inch Full HD)</span
+                <span class="name" th:utext="${product.name}"></span
                 >
-                <span class="price" th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 1, 'POINT')}"></span>
+                <span th:if="${product.status.equals('on')}" class="price" th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 1, 'POINT')}"></span>
+                <span th:if="${product.status.equals('off')}" class="price" > Liên Hệ </span>
               </div>
             </a>
             <a href="#" class="card cover-cate">
@@ -162,38 +160,13 @@
             </a>
             <a href="#" class="card prod-item">
               <div class="img">
-                <img src="../images/product/dell-5577.jpg" alt="" />
+                <img th:src="${product.productImages.image1}" alt="" />
               </div>
               <div class="content">
-                <span class="name"
-                  >Laptop cũ Dell Inspiron 5577 (Core i5-7300HQ, RAM 8GB, HDD
-                  500GB, VGA 4GB GTX 1050, 15.6' FHD)</span
+                <span class="name" th:utext="${product.name}"></span
                 >
-                <span class="price">14.890.000đ</span>
-              </div>
-            </a>
-            <a href="#" class="card prod-item">
-              <div class="img">
-                <img src="../images/product/dell-7559.jpg" alt="" />
-              </div>
-              <div class="content">
-                <span class="name"
-                  >Laptop cũ Dell Gaming 7559 (Core i5-6300HQ, RAM 8GB, HDD
-                  500GB + SSD 128GB, VGA 4GB GTX 960M, 15.6' FHD)</span
-                >
-                <span class="price">13.890.000đ </span>
-              </div>
-            </a>
-            <a href="#" class="card prod-item">
-              <div class="img">
-                <img src="../images/product/acer-nitro-5.jpg" alt="" />
-              </div>
-              <div class="content">
-                <span class="name"
-                  >[Mới 100%] Acer Nitro 5 AN515-54 (Core i5-9300H, RAM 8GB, SSD
-                  256GB, VGA 4GB GTX 1650, 15.6' FHD IPS)</span
-                >
-                <span class="price">18.890.000đ</span>
+                <span th:if="${product.status.equals('on')}" class="price" th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 1, 'POINT')}"></span>
+                <span th:if="${product.status.equals('off')}" class="price" > Liên Hệ </span>
               </div>
             </a>
           </div>

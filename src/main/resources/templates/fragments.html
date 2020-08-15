@@ -42,7 +42,7 @@
                         <div class="sub-menu sub-menu-1">
                             <th:block th:each="subCategory: ${categories}">
                                 <th:block th:if="${subCategory.parentId == category.id}">
-                                    <a th:href="@{'/'+${category.name} + '-' + ${subCategory.id}}"
+                                    <a th:href="@{'/category/'+${category.convertUriUrl()} + '-' + ${subCategory.id}}"
                                        class="sub-menu-item"
                                        th:text="${subCategory.name}"></a>
                                 </th:block>

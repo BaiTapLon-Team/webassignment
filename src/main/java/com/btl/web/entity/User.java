@@ -5,21 +5,25 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "User")
+@Table(name = "UserWeb")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "Email")
     private String email;
 
+    @Column(name = "PassWord")
     private String password;
-
+    @Column(name = "UserName")
     private String username;
 
+    @Column(name = "BirthDay")
     private Date brithday;
 
+    @Column(name = "UserRole")
     private Integer userRole;
 
     public User() {

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thêm mới sản phẩm</title>
+  <link rel="stylesheet" href="../fonts/font-awesome/css/all.css" />
+  <link
+          rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+          crossorigin="anonymous"
+  />
+  <script
+          src="https://code.jquery.com/jquery-3.5.1.js"
+          integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+          crossorigin="anonymous"
+  ></script>
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+  <link rel="stylesheet" href="../css/product.css" />
+    <style>
+        td {
+            height: 50px;
+        }
+    </style>
+</head>
+  <body>
+    <div id="root">
+      <div class="wrapper">
+        <div class="header">
+          <div class="banner d-flex">
+            <img src="../images/logo.png" alt="" />
+            <h4>Hệ thống quản trị website</h4>
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="content">
+            <div
+              class="col-12 mt-2 mb-3 d-flex justify-content-between align-item-center"
+            >
+              <h4 class="mb-0">Thêm mới sản phẩm</h4>
+              <a href="#" style="color: #212b35;">
+                Quay về trang danh sách
+                <i
+                  class="far fa-chevron-right"
+                  style="font-size: 15px; margin-left: 8px;"
+                ></i
+              ></a>
+            </div>
+            <form th:action="@{/product}" th:object="${product}" method="post">
+              <div class="d-flex info-product">
+                <div class="info-product-left">
+                  <div class="box-info">
+                    <h6 class="box-info-title col-12">
+                      Thông tin chung
+                    </h6>
+                    <div class="d-flex form-group-two-col">
+                      <div class="form-group col-6">
+                        <label for="name-product">Tên sản phẩm</label>
+                        <input
+                          th:field="*{name}"
+                          type="text"
+                          class="form-control"
+                          id="name-product"
+                          name="nameProduct"
+                          placeholder="Nhập tên sản phẩm"
+                        />
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="price">Giá sản phẩm</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          th:field="*{price}"
+                          id="price"
+                          name="price"
+                          placeholder="Nhập tên sản phẩm"
+                        />
+                      </div>
+                    </div>
+                    <div class="d-flex form-group-two-col">
+                      <div class="form-group col-6">
+                        <label for="parentid" >Danh mục cha</label>
+                        <select class="custom-select" id="parentid" name="parentid"  >
+                          <option selected value="1">Laptop gaming</option>
+                          <option value="2">Laptop đồ họa</option>
+                          <option value="3">Laptop mỏng nhẹ</option>
+                          <option value="4">Laptop cũ</option>
+                          <option value="5">Linh kiện</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="idCategory">Danh mục con</label>
+                        <select class="custom-select" id="idCategory" name="nameCategory">
+                          <option selected th:value="@{'Laptop dell'}">Laptop dell</option>
+                          <option value="Laptop lenovo">Laptop lenovo</option>
+                          <option value="Laptop hp">Laptop hp</option>
+                          <option value="Chuột máy tính">Chuột máy tính</option>
+                          <option value="Ram">Ram</option>
+                          <option value="Ổ cứng">Ổ cứng</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group col-12">
+                      <label for="description">Mô tả</label>
+                      <textarea
+                        class="form-control"
+                        id="description"
+                        rows="3"
+                        th:field="*{description}"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="box-info" style="margin-top: 25px;">
+                    <h6 class="box-info-title col-12">
+                      Thông số kĩ thuật
+                    </h6>
+                    <div class="d-flex form-group-two-col">
+                      <div class="form-group col-3">
+                        <label for="cpu">CPU</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="cpu"
+                          name="cpu"
+                          th:field="*{cpu}"
+                          placeholder=""
+                        />
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="name-product">Ram</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="ram"
+                          name="ram"
+                          th:field="*{ram}"
+                          placeholder=""
+                        />
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="name-product">Bộ nhớ</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="memory"
+                          th:field="*{hardDisk}"
+                          placeholder=""
+                        />
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="name-product">Màn hình</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="scene"
+                          th:field="*{screen}"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+                    <div class="d-flex form-group-two-col">
+                      <div class="form-group col-3">
+                        <label for="name-product">Cổng kết nối</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          th:field="*{portConnect}"
+                          id="port"
+                          placeholder=""
+                        />
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="name-product">Trọng lượng</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="weight"
+                          th:field="*{weight}"
+                          placeholder=""
+                        />
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="battery">Pin</label>
+                        <input
+                          type="text"
+                          th:field="*{pin}"
+                          class="form-control"
+                          id="battery"
+                          placeholder=""
+                        />
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="os">Hệ điều hành</label>
+                        <input
+                          type="text"
+                          th:field="*{os}"
+                          class="form-control"
+                          id="os"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+                    <div class="d-flex form-group-two-col">
+                      <div class="form-group col-3">
+                        <label for="busRam">Bus-ram</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="busRam"
+                          th:field="*{busRam}"
+                          placeholder=""
+                        />
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="brand">Thương hiệu</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="brand"
+                          th:field="*{brand}"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="info-product-right">
+                  <div class="box-info">
+                    <h6 class="box-info-title col-12">
+                      Tình trạng hàng
+                    </h6>
+                    <div class="d-flex form-group-two-col col-12 pt-2 pb-4">
+                      <div class="form-check col-6">
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="active"
+                          name="status"
+                          th:field="*{status}"
+                          value="on"
+                          checked
+                        />
+                        <label class="form-check-label" for="active"
+                          >Còn hàng</label
+                        >
+                      </div>
+                      <div class="form-check col-6">
+                        <input
+                          type="radio"
+                          th:field="*{status}"
+                          class="form-check-input"
+                          id="disable"
+                          name="status"
+                          value="off"
+                        />
+                        <label class="form-check-label" for="disable"
+                          >Hết hàng</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="box-info box-info-img" style="margin-top: 25px;">
+                    <h6 class="box-info-title d-flex justify-content-between col-12">
+                      <span>Ảnh sản phẩm</span>
+                      <span class="fileinput-button">
+                        Thêm Ảnh
+                      </span>
+                    </h6>
+                      <table width="100%">
+                          <tr>
+                              <td>Image 1: </td>
+                              <td><input type="text" th:field="*{productImages.image1}" name="image1" id="image1"/><br /></td>
+                          </tr>
+                          <tr>
+                              <td>Image 2: </td>
+                              <td><input type="text" th:field="*{productImages.image2}" name="image2" id="image2"/><br /></td>
+                          </tr>
+                          <tr>
+                              <td>Image 3: </td>
+                              <td><input type="text" th:field="*{productImages.image3}" name="image3" id="image3"/><br /></td>
+                          </tr>
+                          <tr>
+                              <td>Image 4: </td>
+                              <td><input type="text" th:field="*{productImages.image4}" name="image4" id="image4"/><br /></td>
+                          </tr>
+                          <tr>
+                              <td>Image 5: </td>
+                              <td><input type="text" th:field="*{productImages.image5}" name="image5" id="image5"/><br /></td>
+                          </tr>
+                          </table>
+                    <output id="Filelist" class="file-list"></output>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-end m-3">
+                <button
+                  type="button"
+                  class="btn btn-light mr-3"
+                  style="border-color: #cccccc;"
+                >
+                  Hủy
+                </button>
+                <button type="submit" class="btn btn-primary">Thêm mới</button>
+              </div>
+            </form>
+            <h3 th:text="${error}" style="color: red;"></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <th:block th:include="fragments :: lib-bottom"></th:block>
+    <script src="../static/js/create.js"></script>
+  </body>
+</html>

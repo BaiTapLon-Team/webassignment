@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin</title>
+  <link rel="stylesheet" href="../fonts/font-awesome/css/all.css" />
+  <link
+          rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+          crossorigin="anonymous"
+  />
+  <script
+          src="https://code.jquery.com/jquery-3.5.1.js"
+          integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+          crossorigin="anonymous"
+  ></script>
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+  <link rel="stylesheet" href="../css/product.css" />
+</head>
+  <body>
+    <div id="root">
+      <div class="wrapper">
+        <div class="header">
+          <div class="banner d-flex">
+            <img src="../images/logo.png" alt="" />
+            <h4>Hệ thống quản trị website</h4>
+          </div>
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Danh sách sản phẩm</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Danh sách đơn hàng</a>
+            </li>
+          </ul>
+        </div>
+        <div class="main-content">
+          <div class="action d-flex justify-content-between align-item-center">
+            <form action="/admin/list-product" method="post" class="form-inline my-2 my-lg-0 mr-2">
+              <input
+                name="search"
+                class="form-control mr-sm-2"
+                type="search"
+                placeholder="Tìm kiếm sản phẩm ..."
+                aria-label="Search"
+              />
+              <button
+                class="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+              >
+                <i class="far fa-search"></i>
+              </button>
+            </form>
+            <div class="btn-action">
+              <a
+                class="btn btn-primary"
+                href="/product"
+                role="button"
+              >
+                Thêm mới sản phẩm
+              </a>
+            </div>
+          </div>
+          <div class="content">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Tên sản phẩm</th>
+                  <th scope="col">Danh mục</th>
+                  <th scope="col">Giá sản phẩm</th>
+                  <th scope="col">Ngày tạo</th>
+                  <th scope="col">Trạng thái</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody th:each="product:${products}">
+                <tr>
+                  <td class="col-img">
+                    <img
+                      th:src="${product.productImages.image1}"
+                      alt=""
+                      class="col-img-prod"
+                    />
+                  </td>
+                  <td th:utext="${product.name}"></td>
+                  <td th:utext="${product.category.name}"></td>
+                  <td th:utext="${#numbers.formatDecimal(product.price, 0, 'COMMA', 1, 'POINT')}"></td>
+                  <td th:utext="${product.createdOn}"></td>
+                  <td th:utext="${product.status}"></td>
+                  <td class="col-btn-action">
+                    <div class="col-btn-action-content">
+                      <a th:href="@{'/admin/product/'+${product.id}}">
+                        <button th:if="${product.status.equals('on')}" type="button" class="btn btn-danger btn-sm">
+                          Ngừng Bán
+                        </button>
+                        <button th:if="${product.status.equals('off')}" type="button" class="btn btn-danger btn-sm">
+                          Mở bán
+                        </button>
+                      </a>
+                    </div>
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="d-flex justify-content-end mt-4">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#">Trang Trước</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">Trang tiếp</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <th:block th:include="fragments :: lib-bottom"></th:block>
+  </body>
+</html>
