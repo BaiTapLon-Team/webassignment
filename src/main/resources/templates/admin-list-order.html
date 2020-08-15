@@ -87,7 +87,7 @@
                             <td th:text="${order.status}"></td>
                             <td class="col-btn-action" style="width: 150px;">
                                 <div class="col-btn-action-content">
-                                    <a href="#" class="btn btn-info btn-sm">
+                                    <a th:href="'/admin/orders/'+ ${order.id}" class="btn btn-info btn-sm">
                                         Chi tiết
                                     </a>
                                     <button type="button" class="btn btn-danger btn-sm">

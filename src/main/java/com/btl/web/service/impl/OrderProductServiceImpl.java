@@ -26,7 +26,7 @@ public class OrderProductServiceImpl implements OrderProductService {
     }
 
     @Override
-    public Optional<OrderProduct> findById(int id) {
-        return Optional.empty();
+    public List<OrderProduct> findById(int id) {
+        return orderProductRepository.findByOrderId(id);
     }
 }

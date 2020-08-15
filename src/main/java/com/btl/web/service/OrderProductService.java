@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface OrderProductService {
     OrderProduct save(OrderProduct orderProduct);
     List<OrderProduct> getAll();
-    Optional<OrderProduct> findById(int id);
+    List<OrderProduct> findById(int id);
 }
