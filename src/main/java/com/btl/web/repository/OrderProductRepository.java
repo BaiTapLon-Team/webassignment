@@ -6,6 +6,6 @@ import com.btl.web.entity.OrderProductPK;
 import org.springframework.stereotype.Repository;
 
 @Repository
-interface OrderProductRepository extends JpaRepository<OrderProduct, OrderProductPK> {
+public interface OrderProductRepository extends JpaRepository<OrderProduct, OrderProductPK> {
 
 }

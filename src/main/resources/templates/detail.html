@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://thymeleaf.org">
+<head>
+    <th:block th:include="fragments :: head-default"></th:block>
+    <title>T-SHOP</title>
+    <link rel="stylesheet" href="../css/detail.css"/>
+
+</head>
+<body>
+<div id="root" class="width-100 height-100">
+    <div th:replace="fragments :: header"></div>
+    <div class="main-content container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+
+                </li>
+            </ol>
+        </nav>
+        <div class="detail-top">
+            <div class="name-product">
+                <h5 th:text="${product.name}"></h5>
+            </div>
+            <div class="detail-top-content">
+                <div class="content-img">
+                    <div class="main-img">
+                        <img
+                                th:src="${product.productImages.image1}"
+                                alt=""
+                                class="main-img-item"
+                        />
+                    </div>
+                    <div class="list-img">
+                        <th:block th:if="${product.productImages.image1 != null}">
+                            <img
+                                    th:src="${product.productImages.image1}"
+                                    alt=""
+                                    class="list-img-item"
+                            />
+                        </th:block>
+
+                        <th:block th:if="${product.productImages.image2 != null}">
+                            <img
+                                    th:src="${product.productImages.image2}"
+                                    alt=""
+                                    class="list-img-item"
+                            />
+                        </th:block>
+                        <th:block th:if="${product.productImages.image3 != null}">
+                            <img
+                                    th:src="${product.productImages.image3}"
+                                    alt=""
+                                    class="list-img-item"
+                            />
+                        </th:block>
+                        <th:block th:if="${product.productImages.image4 != null}">
+                            <img
+                                    th:src="${product.productImages.image4}"
+                                    alt=""
+                                    class="list-img-item"
+                            />
+                        </th:block>
+                        <th:block th:if="${product.productImages.image5 != null}">
+                            <img
+                                    th:src="${product.productImages.image5}"
+                                    alt=""
+                                    class="list-img-item"
+                            />
+                        </th:block>
+                        <th:block th:if="${product.productImages.image6 != null}">
+                            <img
+                                    th:src="${product.productImages.image6}"
+                                    alt=""
+                                    class="list-img-item"
+                            />
+                        </th:block>
+                    </div>
+                </div>
+                <div class="content-detail">
+                    <div class="content-detail-main">
+                        <div class="content-detail-item">
+                  <span class="content-detail-item-label strong"
+                  >Giá bán:
+                  </span>
+                            <span class="content-detail-item-content price-content" th:text="${product.price + 'đ'}"
+                            >đ</span>
+                        </div>
+                        <div class="content-detail-item">
+                            <span class="content-detail-item-label">CPU: </span>
+                            <span class="content-detail-item-content" th:text="${product.cpu}"></span>
+                        </div>
+                        <div class="content-detail-item">
+                            <span class="content-detail-item-label">RAM: </span>
+                            <span class="content-detail-item-content" th:text="${product.ram}"></span>
+                        </div>
+                        <div class="content-detail-item">
+                            <span class="content-detail-item-label">Ổ cứng: </span>
+                            <span class="content-detail-item-content" th:text="${product.hardDisk}"></span>
+                        </div>
+                        <div class="content-detail-item">
+                            <span class="content-detail-item-label">Hệ điều hành: </span>
+                            <span class="content-detail-item-content" th:text="${product.os}"></span>
+                        </div>
+                        <div class="content-detail-item">
+                            <span class="content-detail-item-label">Màn hình: </span>
+                            <span class="content-detail-item-content" th:text="${product.screen}"></span>
+                        </div>
+                        <div class="content-detail-item">
+                  <span class="content-detail-item-label strong"
+                  >Tình trạng:
+                  </span>
+                            <span class="content-detail-item-content highlight"
+                                  th:text="${product.status == 'active'} ? 'Còn hàng' : 'Hết hàng'"></span>
+                        </div>
+                        <div class="content-detail-item">
+                  <span class="content-detail-item-label strong"
+                  >Hotline tư vấn:
+                  </span>
+                            <span class="content-detail-item-content highlight"
+                            >0359008140</span
+                            >
+                        </div>
+                    </div>
+                    <div class="btn-payment">
+                        <button data-toggle="modal" data-target="#modal-order">
+                            <h5>Mua ngay</h5>
+                            <h6>Giao tận nơi hoặc nhận ở cửa hàng</h6>
+                        </button>
+                    </div>
+                    <form action="/product/order" method="post" th:object="${order}">
+                        <div class="modal fade" id="modal-order" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Đặt hàng</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div>
+                                            <h5 class="pl-1 pb-2">Thông tin sản phẩm</h5>
+                                            <table class="table table-bordered table-order">
+                                                <thead>
+                                                <tr>
+                                                    <th scope="col">Ảnh</th>
+                                                    <th scope="col">Tên sản phẩm</th>
+                                                    <th scope="col">Đơn giá</th>
+                                                    <th scope="col">Số lượng</th>
+                                                    <th scope="col">Thành tiền</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td class="col-img">
+                                                        <img
+                                                                src="../images/product/acer-nitro-5.jpg"
+                                                                alt=""
+                                                                class="img-order"
+                                                        />
+                                                    </td>
+                                                    <td class="col-name">Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>@mdo</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div>
+                                            <h5 class="pl-1 pb-2" >Thông tin khách hàng</h5>
+                                            <input th:value="${product.id}" style="display: none" name="productId">
+                                            <div class="d-flex">
+                                                <div class="form-group col-4">
+                                                    <label for="formGroupExampleInput">Họ và tên</label>
+                                                    <input type="text" class="form-control" id="formGroupExampleInput" th:field="*{nameCustomer}">
+                                                </div>
+                                                <div class="form-group col-4">
+                                                    <label for="formGroupExampleInput2">Số điện thoại</label>
+                                                    <input type="text" class="form-control" id="formGroupExampleInput2" th:field="*{phoneNumberCustomer}">
+                                                </div>
+                                                <div class="form-group col-4">
+                                                    <label for="formGroupExampleInput3">Email</label>
+                                                    <input type="text" class="form-control" id="formGroupExampleInput3" th:field="*{emailCustomer}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group pl-1 pb-2">
+                                                <h5 for="exampleFormControlTextarea1">Ghi chú đơn hàng</h5>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" th:field="*{description}"
+                                                          rows="3"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">Mua ngay</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+                <div class="content-promotion">
+                    <div class="qc-shop">
+                        <h6><i class="fas fa-gift"></i> Khuyến mãi đi kèm</h6>
+                        <p class="qc-shop-item">
+                            <i class="far fa-check-square checked-icon"></i>
+                            <span>Balo laptop, túi chống sốc cao cấp</span>
+                        </p>
+
+                        <p class="qc-shop-item">
+                            <i class="far fa-check-square checked-icon"></i>
+                            <span>Chuột không dây hoặc có dây chính hãng</span>
+                        </p>
+                        <p class="qc-shop-item">
+                            <i class="far fa-check-square checked-icon"></i>
+                            <span>Bàn di chuột Gaming bo viền cao cấp</span>
+                        </p>
+                        <p class="qc-shop-item">
+                            <i class="far fa-check-square checked-icon"></i>
+                            <span>Cài đặt, chăm sóc máy trọn đời</span>
+                        </p>
+                    </div>
+                    <div class="qc-shop">
+                        <h6>Yên tâm mua hàng tại T-Shop</h6>
+                        <p class="qc-shop-item">
+                            <i class="fas fa-star"></i>
+                            <span>Chất lượng sản phẩm là hàng đầu</span>
+                        </p>
+                        <p class="qc-shop-item">
+                            <i class="fas fa-star"></i>
+                            <span>Dùng test máy 15 ngày đầu lỗi 1 đổi 1</span>
+                        </p>
+                        <p class="qc-shop-item">
+                            <i class="fas fa-star"></i>
+                            <span>Hỗ trợ và hậu mãi sau bán hàng tốt nhất</span>
+                        </p>
+                        <p class="qc-shop-item">
+                            <i class="fas fa-star"></i>
+                            <span>Giao hàng toàn quốc nhanh nhất</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="detail-bottom">
+            <div class="detail-bottom-left">
+                <div class="detail-bottom-title">
+                    <h6>Đặc điểm nổi bật</h6>
+                </div>
+                <div class="detail-bottom-content">
+                    <p th:text="${product.description}"></p>
+                </div>
+            </div>
+            <div class="detail-bottom-right">
+                <div class="detail-bottom-title">
+                    <h6>Thông số kỹ thuật</h6>
+                </div>
+                <div class="detail-bottom-right-content">
+                    <table class="table table-striped table-bordered ">
+                        <thead>
+                        <tr>
+                            <th>CPU</th>
+                            <td th:text="${product.cpu}">
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th>RAM</th>
+                            <td th:text="${product.ram}"></td>
+                        </tr>
+                        <tr>
+                            <th>Màn hình</th>
+                            <td th:text="${product.screen}"></td>
+                        </tr>
+                        <tr>
+                            <th>Cổng kết nối</th>
+                            <td th:text="${product.portConnect}"></td>
+                        </tr>
+                        <tr>
+                            <th>Trọng lượng</th>
+                            <td th:text="${product.weight}"></td>
+                        </tr>
+                        <tr>
+                            <th>Pin</th>
+                            <td th:text="${product.pin}"></td>
+                        </tr>
+                        <tr>
+                            <th>Hệ điều hành</th>
+                            <td th:text="${product.os}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:replace="fragments :: footer-policy"></div>
+    <div th:replace="fragments :: footer-bottom"></div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true" style="padding-top: 24%; color: blue; position: absolute;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h5 style="text-align: center">Hotline: 0359008140</h5>
+                <h5 style="text-align: center">Email: tshop@gmail.com</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block th:include="fragments :: lib-bottom"></th:block>
+</body>
+</html>

@@ -1,13 +1,12 @@
-package com.btl.web.entity;
-import javax.persistence.*;
+package com.btl.web.model;
+
+import com.btl.web.entity.Order;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Entity
-@Table(name = "OrderTshop")
-public class Order {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class OrderModelRequest{
+    int productId;
     private Integer id;
 
     private BigDecimal totalAmount;
@@ -18,16 +17,13 @@ public class Order {
     private String phoneNumberCustomer;
     private String emailCustomer;
     private String description;
-
-    public Order() {
+    public int getProductId() {
+        return productId;
     }
 
-
-    public Order(String nameCustomer) {
-        this.nameCustomer = nameCustomer;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
-
-
 
     public Integer getId() {
         return id;

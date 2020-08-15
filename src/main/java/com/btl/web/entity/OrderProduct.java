@@ -22,6 +22,13 @@ public class OrderProduct {
     public OrderProduct() {
     }
 
+    public OrderProduct(int orderId, int productId, int quantity, BigDecimal totalAmount) {
+        this.orderId = orderId;
+        this.productId = productId;
+        this.quantity = quantity;
+        this.totalAmount = totalAmount;
+    }
+
     public Integer getProductId() {
         return productId;
     }
