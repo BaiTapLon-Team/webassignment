@@ -6,16 +6,14 @@ import com.btl.web.entity.User;
 import com.btl.web.service.CategoryService;
 import com.btl.web.service.ProductService;
 import com.btl.web.service.UserService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.support.NullValue;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class AdminController {

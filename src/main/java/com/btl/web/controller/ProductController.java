@@ -107,8 +107,11 @@ public class ProductController {
         String paths [] = productPath.split("-");
         int id = Integer.parseInt(paths[paths.length - 1]);
         Optional<Product> optionalProduct = productService.findProductById(id);
-        if(optionalProduct.isEmpty()) {
-            // 404 not found
+//        if(optionalProduct.isEmpty()) {
+//            // 404 not found
+        if(optionalProduct==null) {
+            return "detail";
+//            // 404 not found
         }else {
             model.addAttribute("product", optionalProduct.get());
             model.addAttribute("order", new OrderModelRequest());
@@ -119,7 +122,7 @@ public class ProductController {
     @PostMapping("/product/order")
     private String order(@ModelAttribute("order") OrderModelRequest orderRequest) {
         Optional<Product> optionalProduct = productService.findProductById(orderRequest.getProductId());
-        if(!optionalProduct.isEmpty()) {
+        if(optionalProduct != null) {
             ModelMapper modelMapper = new ModelMapper();
             Order order = modelMapper.map(orderRequest, Order.class);
             order.setCreatedOn(new Date(System.currentTimeMillis()));
